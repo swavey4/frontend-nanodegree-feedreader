@@ -112,14 +112,21 @@ $(function() {
     describe('New Feed Selection', function(){
 
         beforeEach(function(done){
-          loadFeed(function(){
-            done();
+          loadFeed(0,function(){
+
+            feedSelection = document.querySelector('.feed').innerHTML;
+
+            loadFeed(1, function(){
+              done();
+            })
+
           })
-        })
+        });
 
         it('Content changes when a new feed is loaded', function(done){
-
-          expect()
+          const newSelection = document.querySelector('.feed').innerHTML;
+          expect(feedSelection).not.toEqual(newSelection);
+          done();
         })
     })
         /* TODO: Write a test that ensures when a new feed is loaded
