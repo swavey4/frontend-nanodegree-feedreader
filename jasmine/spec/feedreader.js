@@ -73,10 +73,13 @@ $(function() {
           * clicked and does it hide when clicked again.
           */
         it('visibility changes when menu icon is clicked', function(){
-            const menu = document.querySelector('.menu-hidden');
+            const icon = document.querySelector('.menu-icon-link');
+            const main = document.querySelector('.menu-hidden')
 
-            expect(menu).toBeDefined();
-            expect(menu).toBe(0);
+            icon.click();
+            expect(main.className).not.toContain('menu-hidden');
+            icon.click();
+            expect(main.className).toBeDefined();
         })
     })
     /* TODO: Write a new test suite named "Initial Entries" */
@@ -103,10 +106,22 @@ $(function() {
           done();
         })
     })
-      
+
 
     /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function(){
 
+        beforeEach(function(done){
+          loadFeed(function(){
+            done();
+          })
+        })
+
+        it('Content changes when a new feed is loaded', function(done){
+
+          expect()
+        })
+    })
         /* TODO: Write a test that ensures when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
